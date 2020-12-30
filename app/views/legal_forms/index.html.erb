@@ -1,0 +1,16 @@
+<h1>Legal Forms</h1>
+
+<% @legal_forms.each do |legal_form| %>
+  <h2><%= legal_form.title%></h2>
+  <p>
+    <strong>Category:</strong>
+    <%= legal_form.category.name %>
+  </p>
+  <p>
+    <strong>Summary:</strong>
+    <%= legal_form.summary %>
+  </p>
+  <p>
+    <%= link_to 'View Document', legal_form %>
+  </p>
+<% end %>

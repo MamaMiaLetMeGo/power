@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_30_034505) do
+ActiveRecord::Schema.define(version: 2020_12_30_040436) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -24,4 +24,21 @@ ActiveRecord::Schema.define(version: 2020_12_30_034505) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "legal_forms", force: :cascade do |t|
+    t.string "title"
+    t.text "summary"
+    t.text "content"
+    t.integer "category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_legal_forms_on_category_id"
+  end
+
+  add_foreign_key "legal_forms", "categories"
 end
