@@ -1,9 +1,3 @@
-<h2><%= @legal_form.title%></h2>
-<p>
-  <strong>Category:</strong>
-  <%= @legal_form.category.name %>
-</p>
-<p>
-  <strong>Description:</strong>
-  <%= @legal_form.content %>
-</p>
+<%= render partial: 'legal_form',
+           object: @legal_form,
+           locals: { show_document_link: false } %>

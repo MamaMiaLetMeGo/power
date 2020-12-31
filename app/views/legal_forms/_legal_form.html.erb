@@ -1,0 +1,14 @@
+<h2><%= legal_form.title%></h2>
+<p>
+  <strong>Category:</strong>
+  <%= legal_form.category.name %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= legal_form.content %>
+</p>
+<% if show_document_link %>
+  <p>
+    <%= link_to 'View Document', legal_form %>
+  </p>
+<% end %>
